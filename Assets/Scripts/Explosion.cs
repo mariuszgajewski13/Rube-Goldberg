@@ -16,24 +16,7 @@ public class Explosion : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             Debug.Log("BOOM");
             if (rb != null)
-                rb.AddExplosionForce(power, explosionPos, radius, 5);
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-            foreach (Collider hit in colliders)
-            {
-                Rigidbody rb = hit.GetComponent<Rigidbody>();
-                Debug.Log("BOOM");
-                if (rb != null)
-                    rb.AddExplosionForce(power, explosionPos, radius, 5);
-            }
-
+                rb.AddExplosionForce(power, explosionPos, radius, 4);
         }
     }
 }
