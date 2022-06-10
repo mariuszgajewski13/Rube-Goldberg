@@ -6,11 +6,13 @@ public class Explosion : MonoBehaviour
 {
     public float radius = 100f;
     public float power = 10F;
+    public ParticleSystem explosion;
 
     private void OnTriggerEnter(Collider other)
     {
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+        explosion.Play();
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
